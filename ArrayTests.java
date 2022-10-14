@@ -32,7 +32,10 @@ public class ArrayTests {
   @Test
   public void testAverage(){
     double[] input1 = {6, 4, 2, 8, 4};
-    assertEquals(11, ArrayExamples.averageWithoutLowest(input1));
+    double exp = 5.5;
+    double actual = ArrayExamples.averageWithoutLowest(input1);
+    assertEquals(exp, actual, 0.001);
+
   }
 }
 
