@@ -3,16 +3,29 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
-class ListExamples {
+class ListExamples implements StringChecker {
 
   // Returns a new list that has all the elements of the input list for which
   // the StringChecker returns true, and not the elements that return false, in
   // the same order they appeared in the input list;
+
+  @Override
+  public boolean checkString(String s) {
+    boolean ans = false;
+    for(int i = 0; i < s.length(); i++){
+      if(s.charAt(i) == 'a' || s.charAt(i) == 'A' ){
+        return ans = true;
+      }
+    }
+    return ans;
+  }
+
+
   static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(s);
       }
     }
     return result;
@@ -41,9 +54,8 @@ class ListExamples {
     while(index2 < list2.size()) {
       result.add(list2.get(index2));
       index1 += 1;
+      index2++;
     }
     return result;
   }
-
-
 }
